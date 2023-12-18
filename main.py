@@ -38,6 +38,7 @@ text_model = genai.GenerativeModel('gemini-pro',
 def run_llm(question):
     prompt = f"""{question}"""
     result = text_model.generate_content(prompt)
+    print(f"TEST: This is result from run_llm b4 getting text/response: {result}")
     if result:
         response = result.text
         print(f"LLM Response: {response}")
