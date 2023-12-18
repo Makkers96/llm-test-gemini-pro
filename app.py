@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, session
 from main import run_llm
-from IPython.display import display
-from IPython.display import Markdown
+from flaskmarkdown import Markdown
 
 app = Flask(__name__)
+Markdown(app)
 app.secret_key = "thisisasupersecretkey124"
 
 

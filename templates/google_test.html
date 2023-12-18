@@ -17,7 +17,11 @@
         <button value="Submit">Send</button>
     </form>
 
-    <h2>LLM Response: {{ llm_response }}</h2>
+    <h2>LLM Response:</h2>
+    <h2>{% filter markdown %}
+            {{ llm_response }}
+        {% endfilter %}
+    </h2>
 
 </body>
 </html>
