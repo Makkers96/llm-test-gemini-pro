@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, session
 from main import run_llm
-from flaskext.markdown import Markdown
+from flask_misaka import markdown
 
 app = Flask(__name__)
-Markdown(app)
+Misaka(app)
 app.secret_key = "thisisasupersecretkey124"
 
 
