@@ -25,7 +25,7 @@ def google_test():
 
 
 @app.route("/markdown", methods=["GET", "POST"])
-def google_test():
+def google_test_markdown():
 
     if 'llm_response' not in session:
         session['llm_response'] = ""
