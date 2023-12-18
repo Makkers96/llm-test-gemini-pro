@@ -39,7 +39,7 @@ def google_test_markdown():
             print(
                 f"--------------------TEST TEST TEST ------------------------- /// llm response after markdown: {session['llm_response']}")
 
-    return render_template("google_test.html",
+    return render_template("google_test_markdown.html",
                            llm_response=session['llm_response'],
                            )
 

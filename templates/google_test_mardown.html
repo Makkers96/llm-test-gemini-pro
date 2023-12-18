@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Test</title>
+    <style>
+        #prompt {
+            width: 600px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="/markdown" method="post">
+        <textarea id="prompt" name="prompt" placeholder="Prompt here" required></textarea>
+        <button value="Submit">Send</button>
+    </form>
+
+    <h2>LLM Response:</h2>
+    <h2>{{ llm_response|safe }}</h2>
+
+</body>
+</html>
