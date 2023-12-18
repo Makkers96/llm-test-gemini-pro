@@ -2,4 +2,4 @@ google-generativeai
 google-ai-generativelanguage
 flask
 Gunicorn
-Flask-Misaka
+markdown

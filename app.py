@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, session
 from main import run_llm
+import markdown
 
 app = Flask(__name__)
 app.secret_key = "thisisasupersecretkey124"
@@ -32,7 +33,11 @@ def google_test_markdown():
         if 'prompt' in request.form:
             session['prompt'] = request.form.get('prompt')
 
-            session['llm_response'] = Markdown(run_llm(session['prompt']).text)
+            session['llm_response'] = run_llm(session['prompt'])
+            print(f"--------------------TEST TEST TEST ------------------------- /// llm response b4 markdown: {session['llm_response']}")
+            session['llm_response'] = markdown.markdown(session['llm_response'])
+            print(
+                f"--------------------TEST TEST TEST ------------------------- /// llm response after markdown: {session['llm_response']}")
 
     return render_template("google_test.html",
                            llm_response=session['llm_response'],
