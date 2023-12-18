@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session
 from main import run_llm
-from flaskmarkdown import Markdown
+from flaskext.markdown import Markdown
 
 app = Flask(__name__)
 Markdown(app)
