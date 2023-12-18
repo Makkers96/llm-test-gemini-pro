@@ -36,7 +36,8 @@ text_model = genai.GenerativeModel('gemini-pro',
                               safety_settings=safety_settings)
 
 
-def run_llm(prompt):
+def run_llm(question):
+    prompt = f"""{question}"""
     response = text_model.generate_content(prompt)
     print(f"LLM Response: {response}")
     return response
