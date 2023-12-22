@@ -48,7 +48,7 @@ safety_settings = [
 #
 #     return response
 
-llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0)
+llm = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0, google_api_key=key)
 
 
 def run_llm(question):
