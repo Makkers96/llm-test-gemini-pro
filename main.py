@@ -2,8 +2,7 @@ import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 
-# key = os.getenv('google_key')
-key = "AIzaSyDKUZN041lm_DsSIP-ZER5zZh-CLutu9pE"
+key = os.getenv('google_key')
 genai.configure(api_key=key)
 
 generation_config = {
