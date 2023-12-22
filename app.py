@@ -19,14 +19,6 @@ def google_test():
             session['llm_response'] = run_llm(session['prompt'])
             session['llm_response'] = markdown.markdown(session['llm_response'])
 
-            split_llm_response = session['llm_response'].split("```")
-            section_0 = split_llm_response[0]
-            section_1 = split_llm_response[1]
-            section_2 = split_llm_response[2]
-            print(f"TEST: SECTION 0: {section_0}")
-            print(f"TEST: SECTION 1: {section_1}")
-            print(f"TEST: SECTION 2: {section_2}")
-
     return render_template("google_test.html",
                            llm_response=session['llm_response'],
                            )
