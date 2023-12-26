@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session
-from main import run_llm
+from main import run_llm, run_chat
 import markdown
 
 app = Flask(__name__)
@@ -19,8 +19,11 @@ def google_test():
             session['llm_response'] = run_llm(session['prompt'])
             session['llm_response'] = markdown.markdown(session['llm_response'])
 
+            session['chat_history'] = run_chat(session['prompt'])
+
     return render_template("google_test.html",
                            llm_response=session['llm_response'],
+                           chat_history=session['chat_history'],
                            )
 
 

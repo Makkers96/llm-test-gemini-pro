@@ -30,14 +30,14 @@ safety_settings = [
     }
 ]
 
-text_model = genai.GenerativeModel('gemini-pro',
-                                   generation_config=generation_config,
-                                   safety_settings=safety_settings)
+llm = genai.GenerativeModel('gemini-pro',
+                            generation_config=generation_config,
+                            safety_settings=safety_settings)
 
 
 def run_llm(question):
     prompt = f"""{question}"""
-    result = text_model.generate_content(prompt)
+    result = llm.generate_content(prompt)
     print(f"TEST: This is result from run_llm b4 getting text/response: {result}")
     if result:
         response = result.text
@@ -46,7 +46,6 @@ def run_llm(question):
         response = "Couldn't get a response from the llm."
 
     return response
-
 
 # # pip install langchain-google-genai
 # from langchain_google_genai import ChatGoogleGenerativeAI
@@ -66,3 +65,13 @@ def run_llm(question):
 #     print(f"TEST2: Got result: {result}")
 #     print(f"TEST3: Going to return result.content: {result.content}")
 #     return result.content
+
+
+# region Chat
+chat = llm.start_chat(history=[])
+
+
+def run_chat(input):
+    chat.send_message(input)
+    return chat.history
+# endregion
