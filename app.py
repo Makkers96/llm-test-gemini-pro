@@ -21,7 +21,9 @@ def google_test():
             session['llm_response'] = run_llm(session['prompt'])
             session['llm_response'] = markdown.markdown(session['llm_response'])
 
-            session['chat_history'] = run_chat(session['prompt'])
+            chat_history = run_chat(session['prompt'])
+            str_chat_history = str(chat_history)
+            session['chat_history'] = str_chat_history
 
     return render_template("google_test.html",
                            llm_response=session['llm_response'],
