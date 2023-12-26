@@ -11,6 +11,8 @@ def google_test():
 
     if 'llm_response' not in session:
         session['llm_response'] = ""
+    if 'chat_history' not in session:
+        session['chat_history'] = ""
 
     if request.method == 'POST':
         if 'prompt' in request.form:
