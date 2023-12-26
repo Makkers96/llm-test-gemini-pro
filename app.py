@@ -45,5 +45,23 @@ def google_test_markdown():
                            )
 
 
+@app.route("/html", methods=["GET", "POST"])
+def html_test():
+
+    if 'llm_response' not in session:
+        session['llm_response'] = ""
+
+    if request.method == 'POST':
+        if 'prompt' in request.form:
+            session['prompt'] = request.form.get('prompt')
+
+            session['llm_response'] = run_llm(session['prompt'])
+            session['llm_response'] = markdown.markdown(session['llm_response'])
+
+    return render_template("html_test.html",
+                           llm_response=session['llm_response'],
+                           )
+
+
 if __name__ == "__main__":
     app.run()

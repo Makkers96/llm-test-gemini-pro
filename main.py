@@ -31,36 +31,38 @@ safety_settings = [
     }
 ]
 
-# text_model = genai.GenerativeModel('gemini-pro',
-#                                    generation_config=generation_config,
-#                                    safety_settings=safety_settings)
-#
-#
-# def run_llm(question):
-#     prompt = f"""{question}"""
-#     result = text_model.generate_content(prompt)
-#     print(f"TEST: This is result from run_llm b4 getting text/response: {result}")
-#     if result:
-#         response = result.text
-#         print(f"LLM Response: {response}")
-#     else:
-#         response = "Couldn't get a response from the llm."
-#
-#     return response
-
-llm = ChatGoogleGenerativeAI(model="gemini-pro",
-                             temperature=0,
-                             google_api_key=key,
-                             safety_settings=safety_settings,
-                             max_output_tokens=2048,
-                             top_k=1,
-                             top_p=1,
-                             )
+text_model = genai.GenerativeModel('gemini-pro',
+                                   generation_config=generation_config,
+                                   safety_settings=safety_settings)
 
 
 def run_llm(question):
-    print(f"TEST: Ran the run_llm function.")
-    result = llm.invoke(question)
-    print(f"TEST2: Got result: {result}")
-    print(f"TEST3: Going to return result.content: {result.content}")
-    return result.content
+    prompt = f"""{question}"""
+    result = text_model.generate_content(prompt)
+    print(f"TEST: This is result from run_llm b4 getting text/response: {result}")
+    if result:
+        response = result.text
+        print(f"LLM Response: {response}")
+    else:
+        response = "Couldn't get a response from the llm."
+
+    return response
+
+
+# # pip install langchain-google-genai
+# llm = ChatGoogleGenerativeAI(model="gemini-pro",
+#                              temperature=0,
+#                              google_api_key=key,
+#                              safety_settings=safety_settings,
+#                              max_output_tokens=2048,
+#                              top_k=1,
+#                              top_p=1,
+#                              )
+#
+#
+# def run_llm(question):
+#     print(f"TEST: Ran the run_llm function.")
+#     result = llm.invoke(question)
+#     print(f"TEST2: Got result: {result}")
+#     print(f"TEST3: Going to return result.content: {result.content}")
+#     return result.content
