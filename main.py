@@ -1,5 +1,4 @@
 import google.generativeai as genai
-from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 
 key = os.getenv('google_key')
@@ -50,6 +49,7 @@ def run_llm(question):
 
 
 # # pip install langchain-google-genai
+# from langchain_google_genai import ChatGoogleGenerativeAI
 # llm = ChatGoogleGenerativeAI(model="gemini-pro",
 #                              temperature=0,
 #                              google_api_key=key,
